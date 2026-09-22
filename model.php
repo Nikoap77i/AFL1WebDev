@@ -8,4 +8,13 @@ class trainer{
     public $workingHours;
 }
 
+class office{
+
+public $name;
+public $address;
+public $city;
+public $phone;
+
+}
+
 ?>
