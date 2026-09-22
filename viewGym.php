@@ -1,5 +1,5 @@
 <?php
-    require 'controller.php'; 
+    require 'controller.php';
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,34 +14,33 @@
         <div class="card text-center shadow-sm rounded-4 bg-white">
     <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
-<li class="nav-item">
-    <a class="nav-link active" aria-current="true" href="viewTrainer.php">Gym Trainer Profile</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="viewAddTrainer.php">Add New Gym Trainer</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="viewGym.php">Gym List</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="viewAddGym.php">Add New Gym</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="viewGymAssignment.php">Gym Assignments</a>
-</li>
-</ul>
+        <li class="nav-item">
+            <a class="nav-link" href="viewTrainer.php">Gym Trainer Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="viewAddTrainer.php">Add New Gym Trainer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="true" href="viewGym.php">Gym List</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="viewAddGym.php">Add New Gym</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="viewGymAssignment.php">Gym Assignments</a>
+        </li>
+        </ul>
     </div>
     <div class="card-body">
-        <h1 class="card-title">Gym Trainer Profile</h1>
+        <h1 class="card-title">Gym List</h1>
         <table class="table table-hover align-middle border table-centered">
     <thead class="table-primary">
         <tr>
         <th scope="col">Number</th>
-        <th scope="col">Trainer's Name</th>
-        <th scope="col">Phone Number</th>
+        <th scope="col">Gym Name</th>
         <th scope="col">Address</th>
-        <th scope="col">Email</th>
-        <th scope="col">Working Hours</th>
+        <th scope="col">City</th>
+        <th scope="col">Phone</th>
         <th scope="col">Action</th>
         </tr>
     </thead>
@@ -49,22 +48,22 @@
 
         <?php
             $counter = 0;
-            $allTrainers = getTrainerList();
-            foreach($allTrainers as $index => $trainer) { 
+            $allGyms = getGymList();
+            foreach($allGyms as $index => $gym) {
                 $counter++;
         ?>
                 <tr>
                     <th scope="row"><?=$counter; ?></th>
-                    <td><?=$trainer->name; ?></td>
-                    <td><?=$trainer->phone; ?></td>
-                    <td><?=$trainer->address; ?></td>
-                    <td><?=$trainer->email; ?></td>
-                    <td><?=$trainer->workingHours; ?></td>
+                    <td><?=$gym->gymName; ?></td>
+                    <td><?=$gym->address; ?></td>
+                    <td><?=$gym->city; ?></td>
+                    <td><?=$gym->phone; ?></td>
                     <td>
-                        <a href="viewEditTrainer.php?edit=<?=$index?>">
+                        <a href="viewEditGym.php?edit=<?=$index?>">
                             <button type="button" class="btn btn-warning">Edit</button>
                         </a>
-                        <a href="controller.php?delete=<?=$index?>">
+                        
+                        <a href="controller.php?deleteGym=<?=$index?>">
                             <button type="button" class="btn btn-danger">Delete</button>
                         </a>
                         </td>
@@ -73,11 +72,7 @@
             <?php
             }
             ?>
-
-
-        
     </tbody>
     </table>
-    </div>
 </body>
 </html>
