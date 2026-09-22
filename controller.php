@@ -52,4 +52,37 @@ if(isset($_POST["edit"])){
     header("Location: viewTrainer.php");
 }
 
+//Office
+if(!isset($_SESSION['officeList'])){
+    $_SESSION['officeList'] = array();
+}
+
+function addOffice(){
+    $office = new office();
+    $office->name = $_POST["inputOfficeName"];
+    $office->address = $_POST["inputOfficeAddress"];
+    $office->city = $_POST["inputOfficeCity"];
+    $office->phone = $_POST["inputOfficePhone"];
+    array_push($_SESSION['officeList'], $office);
+}
+
+function getOfficeList(){
+    return $_SESSION['officeList'];
+}
+
+function deleteOffice($index){
+    unset($_SESSION['officeList'][$index]);
+    $_SESSION['officeList'] = array_values($_SESSION['officeList']);
+}
+
+if(isset($_POST["registerOffice"])){
+    addOffice();
+    header("Location: viewOffice.php");
+}
+
+if(isset($_GET["deleteOffice"])){
+    deleteOffice($_GET["deleteOffice"]);
+    header("Location: viewOffice.php");
+}
+    
 ?>
