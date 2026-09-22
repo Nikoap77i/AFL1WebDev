@@ -9,12 +9,10 @@ class trainer{
 }
 
 class office{
-
-public $name;
-public $address;
-public $city;
-public $phone;
-
+    public $name;
+    public $address;
+    public $city;
+    public $phone;
 }
 
 ?>
