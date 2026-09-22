@@ -7,12 +7,4 @@ class trainer{
     public $email;
     public $workingHours;
 }
-
-class office{
-    public $name;
-    public $address;
-    public $city;
-    public $phone;
-}
-
 ?>
