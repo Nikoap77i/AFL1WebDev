@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php 
 require("controller.php");
     if (isset($_GET["edit"])) {// ngecek apakah ada variabel edit di url 
